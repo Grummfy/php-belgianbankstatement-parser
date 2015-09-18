@@ -15,6 +15,11 @@ namespace Codelicious\BelgianBankStatement\Parsers;
  */
 class CsvBnpParibasParser extends AbstractParser {
 
+    /**
+     * @param $content
+     *
+     * @return array<\Codelicious\BelgianBankStatement\Data\Statement>
+     */
     public function parse($content)
     {
         $path = 'php://memory';
@@ -29,6 +34,11 @@ class CsvBnpParibasParser extends AbstractParser {
         return array($statement);
     }
 
+    /**
+     * @param $handle
+     *
+     * @return \Codelicious\BelgianBankStatement\Data\Statement
+     */
     private function parseFileHandle($handle)
     {
         // credits: based on https://github.com/robarov/csv2mt940
@@ -58,6 +68,11 @@ class CsvBnpParibasParser extends AbstractParser {
         return $statement;
     }
 
+    /**
+     * @param $custom_date
+     *
+     * @return string
+     */
     private function convert_date($custom_date)
     {
         $date = $custom_date;

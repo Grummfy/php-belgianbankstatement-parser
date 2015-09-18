@@ -9,8 +9,18 @@ namespace Codelicious\BelgianBankStatement\Parsers;
  */
 abstract class AbstractParser {
 
+    /**
+     * @param $content
+     *
+     * @return array<\Codelicious\BelgianBankStatement\Data\Statement>
+     */
     abstract public function parse($content);
 
+    /**
+     * @param $file
+     *
+     * @return array<\Codelicious\BelgianBankStatement\Data\Statement>
+     */
     public function parseFile($file)
     {
         return $this->parse(file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES));

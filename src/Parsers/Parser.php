@@ -12,7 +12,7 @@ class Parser {
     /**
      * @param $content
      * @param $type
-     * @return \Codelicious\BelgianBankStatement\Data\Statement|null
+     * @return array <\Codelicious\BelgianBankStatement\Data\Statement>|null
      */
     public function parse($content, $type)
     {
@@ -37,6 +37,13 @@ class Parser {
         return $parser->parse($content);
     }
 
+    /**
+     * Parse the file and create a results with all datas
+     * @param string $file
+     * @param string $type
+     *
+     * @return array <\Codelicious\BelgianBankStatement\Data\Statement>|null
+     */
     public function parseFile($file, $type)
     {
         return $this->parse(file($file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES), $type);

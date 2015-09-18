@@ -15,6 +15,11 @@ namespace Codelicious\BelgianBankStatement\Parsers;
  */
 class CodaParser extends AbstractParser {
 
+    /**
+     * @param $content
+     *
+     * @return array<\Codelicious\BelgianBankStatement\Data\Statement>
+     */
     public function parse($content)
     {
         $parser = new \Codelicious\Coda\Parser();
@@ -30,6 +35,11 @@ class CodaParser extends AbstractParser {
         return $statements;
     }
 
+    /**
+     * @param $stmt
+     *
+     * @return \Codelicious\BelgianBankStatement\Data\Statement
+     */
     private function convert($stmt)
     {
         $statement = new \Codelicious\BelgianBankStatement\Data\Statement();
